@@ -52,15 +52,25 @@ export function Header() {
           <LogoLockup />
         </a>
         <nav className="hidden items-center gap-8 lg:flex">
-          {NAV.map((n) => (
-            <a
-              key={n.id}
-              href={n.href}
-              className="hairline-link text-[13.5px] font-medium text-ink-muted transition-colors hover:text-ink"
-            >
-              {n.label}
-            </a>
-          ))}
+          {NAV.map((n) =>
+            n.id === "pricing" ? (
+              <Link
+                key={n.id}
+                to="/pricing"
+                className="hairline-link text-[13.5px] font-medium text-ink-muted transition-colors hover:text-ink"
+              >
+                {n.label}
+              </Link>
+            ) : (
+              <a
+                key={n.id}
+                href={n.href}
+                className="hairline-link text-[13.5px] font-medium text-ink-muted transition-colors hover:text-ink"
+              >
+                {n.label}
+              </a>
+            )
+          )}
         </nav>
         <div className="flex items-center gap-3">
           <div className="hidden items-center gap-1 rounded-full border border-border px-1 py-1 text-[11px] font-medium md:flex">
