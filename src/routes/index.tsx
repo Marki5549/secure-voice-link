@@ -863,4 +863,4 @@ function ServerIcon() {
   );
 }
 
-export { LogoMark };
+
