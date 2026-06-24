@@ -17,12 +17,13 @@ export const Route = createFileRoute("/")({
 });
 
 const NAV = [
-  { id: "problem", label: "Проблема" },
-  { id: "solution", label: "Рішення" },
-  { id: "features", label: "Можливості" },
-  { id: "audience", label: "Для кого" },
-  { id: "trust", label: "Безпека" },
-  { id: "contact", label: "Контакти" },
+  { id: "problem", label: "Проблема", href: "/#problem" },
+  { id: "solution", label: "Рішення", href: "/#solution" },
+  { id: "features", label: "Можливості", href: "/#features" },
+  { id: "audience", label: "Для кого", href: "/#audience" },
+  { id: "trust", label: "Безпека", href: "/#trust" },
+  { id: "pricing", label: "Тарифи", href: "/pricing" },
+  { id: "contact", label: "Контакти", href: "/#contact" },
 ];
 
 function Landing() {
@@ -42,7 +43,7 @@ function Landing() {
 }
 
 /* ------------------------------ HEADER ------------------------------ */
-function Header() {
+export function Header() {
   const [lang, setLang] = useState<"UA" | "EN">("UA");
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur">
@@ -54,7 +55,7 @@ function Header() {
           {NAV.map((n) => (
             <a
               key={n.id}
-              href={`#${n.id}`}
+              href={n.href}
               className="hairline-link text-[13.5px] font-medium text-ink-muted transition-colors hover:text-ink"
             >
               {n.label}
@@ -78,7 +79,7 @@ function Header() {
             ))}
           </div>
           <a
-            href="#contact"
+            href="/#contact"
             className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-[13px] font-medium text-primary-foreground transition-all hover:opacity-90"
           >
             Запросити демо
@@ -704,7 +705,7 @@ function ContactRow({ label, value }: { label: string; value: string }) {
 }
 
 /* -------------------------------- FOOTER -------------------------------- */
-function Footer() {
+export function Footer() {
   return (
     <footer className="border-t border-border bg-surface/60">
       <div className="mx-auto max-w-[1240px] px-6 py-12 md:px-10">
@@ -719,17 +720,18 @@ function Footer() {
           <FooterCol
             title="Продукт"
             items={[
-              ["Проблема", "#problem"],
-              ["Рішення", "#solution"],
-              ["Можливості", "#features"],
+              ["Проблема", "/#problem"],
+              ["Рішення", "/#solution"],
+              ["Можливості", "/#features"],
+              ["Тарифи", "/pricing"],
             ]}
           />
           <FooterCol
             title="Компанія"
             items={[
-              ["Для кого", "#audience"],
-              ["Безпека", "#trust"],
-              ["Контакти", "#contact"],
+              ["Для кого", "/#audience"],
+              ["Безпека", "/#trust"],
+              ["Контакти", "/#contact"],
             ]}
           />
           <FooterCol
@@ -813,7 +815,7 @@ function SectionHead({
 }
 
 /* -------------------------- Icons -------------------------- */
-function ArrowRight({ className = "h-4 w-4" }: { className?: string }) {
+export function ArrowRight({ className = "h-4 w-4" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
       <path
