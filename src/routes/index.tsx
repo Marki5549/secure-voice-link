@@ -548,49 +548,49 @@ function Trust() {
     },
   ];
   return (
-    <section id="trust" className="relative bg-ink text-background">
+    <section id="trust" className="relative bg-surface-2 text-ink">
       <div className="mx-auto max-w-[1240px] px-6 py-24 md:px-10 md:py-32">
-        <p className="eyebrow flex items-center gap-3 text-background/60">
-          <span className="inline-block h-px w-8 bg-background/40" />
+        <p className="eyebrow flex items-center gap-3 text-ink-muted">
+          <span className="inline-block h-px w-8 bg-ink/40" />
           05 — Для тих, хто читає RFC
         </p>
         <h2 className="mt-6 max-w-3xl font-display text-[2.5rem] leading-[1.08] tracking-tight md:text-[3.75rem]">
           Довіра — не в маркетингу.
           <br />
-          <span className="italic text-background/70">Вона в архітектурі.</span>
+          <span className="italic text-ink-muted">Вона в архітектурі.</span>
         </h2>
 
         <div className="mt-16 grid grid-cols-1 gap-10 md:grid-cols-2">
           {points.map((p, i) => (
             <div
               key={p.title}
-              className="border-t border-background/15 pt-6"
+              className="border-t border-border-strong pt-6"
             >
               <div className="flex items-baseline gap-4">
-                <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-background/50">
+                <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-subtle">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="font-display text-[1.65rem] leading-tight">{p.title}</h3>
               </div>
-              <p className="mt-3 pl-10 text-[15px] leading-[1.65] text-background/70">
+              <p className="mt-3 pl-10 text-[15px] leading-[1.65] text-ink-muted">
                 {p.body}
               </p>
             </div>
           ))}
         </div>
 
-        <div className="mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-background/15 bg-background/15 md:grid-cols-4">
+        <div className="mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-border-strong bg-border-strong md:grid-cols-4">
           {[
             ["Протокол", "ZRTP / SRTP"],
             ["Стандарти", "RFC 6189 · 3711"],
             ["Розгортання", "Cloud · On-prem"],
             ["Юрисдикція", "За вибором замовника"],
           ].map(([k, v]) => (
-            <div key={k} className="bg-ink p-6">
-              <p className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-background/50">
+            <div key={k} className="bg-background p-6">
+              <p className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-ink-subtle">
                 {k}
               </p>
-              <p className="mt-3 font-display text-[1.25rem] leading-tight text-background">
+              <p className="mt-3 font-display text-[1.25rem] leading-tight text-ink">
                 {v}
               </p>
             </div>
